@@ -141,4 +141,77 @@ matching pattern scheme. Here is an example of Rust syntax on if statements.
 
 ### **7. Object-Oriented Programming - N.Trimmer**
 
+Rust has a unique approach to object-oriented programming (OOP). Traditional OOP features like inheritance and polymorphism are handled differently in Rust. Rust doesn't have classes or inheritance as typically found in languages like Java. Instead, it uses structs to structure related data, and impl blocks to add behavior, effectively encapsulating data and behavior. For polymorphism, Rust uses traits, which are similar to interfaces in other languages. A trait defines a set of methods that can be implemented by any type. This means you can define a shared set of behaviors for disparate types. For instance, several different struct types might each implement a trait named 'Drawable' that includes a method named 'draw'. Rust’s focus on data ownership and borrowing also add a layer of safety and expressiveness that you don’t find in traditional OOP.
+
 ### **8. Exception Handling and Event Handling - N.Trimmer**
+
+Similarly, rust takes a unique approach to exception handling compared to languages that use exceptions as a form of flow control. In Rust, errors are usually categorized into two types: recoverable and unrecoverable errors. For recoverable errors, such as file not found errors, Rust prefers to use a 'Result<T, E>' type. Unrecoverable errors, or bugs in the code, are handled using the 'panic!' macro, which unwinds the stack and crashes the program. Exception handling in Rust is explicit, meaning functions that can fail to note this in their type signature ('Result' or 'Option' types). This explicitness leads to more predictable and reliable code. Event handling is usually performed with the use of Rust's powerful enum and pattern matching features. Enums can be used to define all possible events, and then pattern matching can be used to handle each possible event in a clear and concise way.
+
+
+### **Sample Program to Demonstrate Concepts:**
+
+```
+// Define an abstract data type
+struct BankAccount {
+    balance: f64,
+}
+
+// Implement encapsulation methods for BankAccount
+impl BankAccount {
+    // A subprogram (constructor function)
+    fn new() -> BankAccount {
+        BankAccount {
+            balance: 0.0, // Assignment statement
+        } 
+    }
+
+    // A subprogram (method to deposit money)
+    fn deposit(&mut self, amount: f64) {
+        self.balance += amount; // Assignment statement
+    }
+
+    // A subprogram (method to withdraw money)
+    fn withdraw(&mut self, amount: f64) -> bool { 
+        // Statement-Level Control Structures
+        if self.balance >= amount {
+            self.balance -= amount; // Assignment statement
+            true
+        } else {
+            false
+        }
+    }
+
+    // A subprogram (method to check balance)
+    fn check_balance(&self) -> f64 {
+        self.balance // Expression
+    }
+}
+
+fn main() {
+    // Subprogram call (constructor call) and Assignment Statements
+    let mut account = BankAccount::new(); 
+
+    // Subprogram call (deposit)
+    account.deposit(100.0);
+    println!("Deposited 100.0");
+
+    // Subprogram call (withdraw)
+    let result = account.withdraw(50.0);
+    
+    // Statement-Level Control Structures
+    if result {
+        println!("Withdrew 50.0");
+    } else {
+        println!("Failed to withdraw money due to insufficient balance.");
+    }
+
+    // Subprogram call (check_balance)
+    let balance = account.check_balance();
+    println!("Balance is: {}", balance);
+}
+```
+
+[repl.it link to run the program](https://replit.com/@nicholasatrimme/ReflectingHoarseProgrammers)
+
+The program simulates a simple bank account system by defining a data type BankAccount with a balance field. It provides several methods, such as new to create a new account with a balance of 0.0, deposit to add a specified amount to the account balance, withdraw to attempt to remove a specified amount (only succeeding if sufficient funds are available), and check_balance to return the current balance. In the main function, these methods are used to create a new account, deposit 100.0, withdraw 50.0, and check the balance, using basic control flow to handle potential failed withdrawal attempts due to insufficient funds.
+
