@@ -136,8 +136,10 @@ matching pattern scheme. Here is an example of Rust syntax on if statements.
 
 
 ### **5. Subprograms - A.Bower**
+Subprograms in rust are called functions, these are used much like subprograms in many other programming languages, to do specific things potentially a number of times in a program. Functions in rust are declared with the "fn" keyword and then follow the format function_name(parameter: type) -> outputType. Interestingly the final value in the body is returned if no return is specified meaning that you do NOT have to explicitly state what you are returning in the body of the function. Rust also all9ows for functions to be overloaded. 
 
 ### **6. Abstract Data Types and Encapsulation Concepts - A.Bower**
+Abstract data types can be created in rust using structs which are much like a class in java. it has the defining attributes of the struct first followed by a code block with the "impl" keyword which contains all of the methods that are specific to a given struct are written. A constructor is written with the function "new" which returns an instance of the struct, and additional functions can be implemented as nywhere else but must take "&self" to allow the function to access the data stored within the struct instance. Encapsulation is supported in rust in a number of ways. data fields within a struct can be hidden using the private keyword or made public with "pub", private values and functions are accessible only within the module. Modules then are another key component of encapsulation, able to control which functions and values are visible to which pieces of code. At a higher level there are crates which are sort of like packages in java and can be compiled seperately from one another for increased disconnection between code that need not connect.
 
 ### **7. Object-Oriented Programming - N.Trimmer**
 
